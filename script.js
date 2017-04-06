@@ -27,12 +27,18 @@ $(document).ready(function() {
   prepareGame();
   console.log(secretWord);
   console.log("hello");
-  function onKeyDown(event) {
+  function onKeyPress(event) {
     var x = event.key;
     var y = x.toUpperCase();
-    alert("You clicked " + y);
+    secretWord.forEach(function(letter, index) {
+      if(y === secretWord[index]) {
+        alert("That is the correct letter");
+      } else {
+        alert("That is the wrong letter");
+      }
+    });
     console.log(event);
   }
   
-  $("body").keydown(onKeyDown);
+  $("body").keypress(onKeyPress);
 });
